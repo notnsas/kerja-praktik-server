@@ -15,3 +15,6 @@ def make_shell_context():
         "Hotel": Hotel,
         "Room": Room,
     }
+
+
+app.run(host="0.0.0.0", port=10000, debug=True)
