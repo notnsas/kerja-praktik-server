@@ -2,6 +2,7 @@ import sqlalchemy as sa
 import sqlalchemy.orm as so
 from app import app, db
 from app.models import User, Post, Hotel, Room
+from config import Config
 
 
 @app.shell_context_processor
@@ -17,4 +18,4 @@ def make_shell_context():
     }
 
 
-app.run(host="0.0.0.0", port=10000, debug=True)
+app.run(host="0.0.0.0", port=Config.PORT, debug=True)
