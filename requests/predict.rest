@@ -1,0 +1,16 @@
+POST http://localhost:5000/api/predict
+Content-Type: application/json
+
+{
+  "room_id": "500275",
+  "property_id": "163277"
+}
+###
+
+POST http://localhost:5000/api/predict
+Content-Type: application/json
+
+{
+  "room_id": "370150",
+  "property_id": "163277"
+}

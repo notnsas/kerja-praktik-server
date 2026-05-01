@@ -1,0 +1,12 @@
+GET http://localhost:5000/api/hotels
+
+###
+
+GET http://localhost:5000/api/rooms
+
+###
+GET http://localhost:5000/api/rooms?propertyId=163277
+
+###
+GET http://localhost:5000/api/average-2026?roomId=370150
+
