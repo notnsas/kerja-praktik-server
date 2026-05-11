@@ -86,7 +86,7 @@ def get_hotels():
         # 1. Get the data from the database and sort it A-Z
         hotels = db.session.query(Hotel).order_by(Hotel.name).all()
 
-        # 2. Convert to a list of dictionaries, including the new detailed fields
+        # 2. Convert to a list of dictionaries, including ALL the new fields!
         hotels_list = [
             {
                 "id": hotel.id,
@@ -94,6 +94,11 @@ def get_hotels():
                 "description": hotel.description,
                 "rating": hotel.rating,
                 "image_link": hotel.image_link,
+                # 👇 THE NEW COLUMNS 👇
+                "maps_link": hotel.maps_link,
+                "booking_link": hotel.booking_link,
+                "latitude": hotel.latitude,
+                "longitude": hotel.longitude,
             }
             for hotel in hotels
         ]
@@ -102,14 +107,8 @@ def get_hotels():
         return jsonify(hotels_list), 200
 
     except Exception as e:
-        # Log the actual error to your server console so you can debug it
-        print(f"❌ Error fetching hotels: {e}")
-
-        # Return a safe error message to the frontend with a 500 Status Code
-        return (
-            jsonify({"error": "Failed to fetch properties. Please try again later."}),
-            500,
-        )
+        # Catch any database errors so the server doesn't crash silently
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route("/api/rooms", methods=["GET"])

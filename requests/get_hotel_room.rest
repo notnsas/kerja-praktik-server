@@ -10,3 +10,6 @@ GET http://localhost:5000/api/rooms?propertyId=163277
 ###
 GET http://localhost:5000/api/average-2026?roomId=370150
 
+###
+POST http://localhost:5000/api/average-2026
+Content-Type: application/json
