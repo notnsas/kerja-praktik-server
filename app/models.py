@@ -37,6 +37,12 @@ class Hotel(db.Model):
     description: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     rating: so.Mapped[Optional[float]] = so.mapped_column(sa.Float)
     image_link: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
+    maps_link: so.Mapped[Optional[str]] = so.mapped_column(sa.String(500))
+    booking_link: so.Mapped[Optional[str]] = so.mapped_column(
+        sa.Text
+    )  # Text is safer for massive Booking URLs
+    longitude: so.Mapped[Optional[float]] = so.mapped_column(sa.Float)
+    latitude: so.Mapped[Optional[float]] = so.mapped_column(sa.Float)
 
     def __repr__(self):
         return "<Hotel {}>".format(self.name)
